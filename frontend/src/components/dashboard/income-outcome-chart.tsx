@@ -76,7 +76,12 @@ export function IncomeOutcomeChart({ data, loading }: IncomeOutcomeChartProps) {
           </div>
         ) : (
           <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={data} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
+            <LineChart
+              data={data}
+              margin={{ top: 4, right: 8, left: 0, bottom: 0 }}
+              accessibilityLayer
+              aria-label="Monthly income and expenditure chart"
+            >
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" strokeOpacity={0.6} />
               <XAxis
                 dataKey="month"
@@ -118,6 +123,27 @@ export function IncomeOutcomeChart({ data, loading }: IncomeOutcomeChartProps) {
             </LineChart>
           </ResponsiveContainer>
         )}
+        <div className="sr-only">
+          <table>
+            <caption>Monthly income and expenditure values</caption>
+            <thead>
+              <tr>
+                <th scope="col">Month</th>
+                <th scope="col">Income</th>
+                <th scope="col">Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((point) => (
+                <tr key={point.month}>
+                  <th scope="row">{point.month}</th>
+                  <td>{formatCurrency(point.income)}</td>
+                  <td>{formatCurrency(point.outcome)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </CardContent>
     </Card>
   )

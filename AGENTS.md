@@ -7,6 +7,8 @@ Agents working on this project **must**:
 
 - Look for available **agent skills** in the directory:  
   `./.agents/skills`
+- For this dashboard's chart review workflow, also read:
+  `./.skills/dashboard-chart-review/SKILL.md`
 
 - Look for the **project memory bank** in:  
   `./memory-bank`  
