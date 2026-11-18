@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  min-width: 20rem;
+  min-width: 0;
   margin: 0;
   background: var(--color-background);
   color: var(--color-text);
@@ -509,6 +509,13 @@ h3 {
   font-size: 0.62rem;
 }
 
+.event-time {
+  margin-top: 0.5rem;
+  color: var(--color-text);
+  font-size: 0.72rem;
+  letter-spacing: normal;
+}
+
 .event-type {
   margin-bottom: 0.4rem;
   color: var(--color-accent-soft);
@@ -789,6 +796,20 @@ h3 {
     grid-column: 2;
     justify-self: start;
     margin-top: 0;
+  }
+}
+
+@media (max-width: 22rem) {
+  h1 {
+    font-size: clamp(3rem, 16vw, 4.3rem);
+  }
+
+  .main-navigation {
+    gap: 0.25rem;
+  }
+
+  .main-navigation a {
+    font-size: 0.65rem;
   }
 }
 
